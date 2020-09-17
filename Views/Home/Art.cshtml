@@ -1,0 +1,70 @@
+﻿@model Smithsonian.Models.Rootobject
+@{
+    ViewData["Title"] = "Art";
+
+}
+
+<div id="page">
+    <div id="header">
+        <div class="title">Smithsonian Libraries</div>
+    </div>
+    <div id="bar">
+        <div class="menuLink"><a asp-area="" asp-action="Index">HOME</a></div>
+        <div class="menuLink"><a asp-area="" asp-action="About">ABOUT</a></div>
+        <div class="menuLink"><a asp-area="" asp-action="Art">BOOKS</a></div>
+        <div class="menuLink"><a asp-area="" asp-action="DataModel">DATA MODEL</a></div>
+
+    </div>
+
+    <div id="pageContent">
+
+        <div id="table-wrapper">
+            <div id="content">
+                <div id="table-scroll">
+                    <table class="tables">
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Year Published</th>
+                            <th>Pages</th>
+                            <th>Dimensions</th>
+                            <th>Publisher</th>
+                        </tr>
+
+                        @{ int i = 0;}
+
+                        @foreach (var item in Model.data)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.attributes.title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.attributes.author)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.attributes.year_published)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.attributes.pages)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.attributes.dimensions)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.attributes.publisher)
+                                </td>
+
+                            </tr>
+                        }
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="footer"></div>
